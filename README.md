@@ -1,1 +1,40 @@
-# abdul
+<html>
+<head>
+<title>
+<center>
+<h1>Registration form<h1></center>
+</title></head>
+<body>
+<h1 style="background-color:DodgerBlue;" align="center" >Registration form
+</br>
+</h1>
+
+<p style="background-color:Tomato;">
+
+Name<input type="text" name="username"/>
+</br></br></br>
+Email<input type="email" name="mail"/>
+</br></br></br>
+Phone<input type="number" name="phone"/>
+</br></br></br>
+
+Gender<input type="radio" value="Male" name="G"/>Male
+<input type="radio" value="Female" name="G"/>Female
+</br></br></br>
+Quaification<select menu="qualification">
+	    <option value=" "> </option>
+	    <option value="B.SC">B.SC</option>
+	    <option value="B.SC">B.Tech</option>
+	    <option value="M.Tech">M.Tech</option>
+	    <option value="M.SC">M.SC</option></select>
+</br></br></br>
+password<input type"password" name="pwd"/>
+</br></br></br>
+DOB<input type="date" name="dob"/>
+</br></br></br>
+<input type"checkbox" name="license"/>Accept
+<button onclick="window.location='loginpage.html'">Submit</button>
+<input type="reset" value="reset"/>
+</br></br></br></br></br></br></br></br></br>
+</p>
+</body></html>
