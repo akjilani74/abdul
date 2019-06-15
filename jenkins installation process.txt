@@ -32,7 +32,11 @@ step8:	Configure Jenkins.
 As noted on the user interface, you can find this password in
 	"cd /var/lib/jenkins/secrets/"
 	"ls -l"
-	"cat initialAdminPassword"		 
+	"cat initialAdminPassword" --->using this commanad you can get the password 
+	copy the password and use it for login jenkins web host
+	and the install as per your requirement.
+	
+	your jenkins is now ready to use.
      
             
 		
