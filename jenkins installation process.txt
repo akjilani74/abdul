@@ -1,0 +1,38 @@
+STEPS TO INSTALL JENKINS IN AWS EC2:
+-----------------------------------------------------------
+step 1:	Connect to your linux machine.
+	login to your EC2
+
+step 2:	Update packages.
+	"sudo yum update"
+
+step 3:	Check java is installed, if not install java.
+	"java -version" ------>to check installed java version
+	"sudo yum install java-1.8.0" ----->to install java
+	
+	To check and select out of multiple java versions available.
+	"sudo /usr/sbin/alternatives --cofig java"
+
+step4:	Download latest jenkins code package.
+	"sudo wget -O /etc/yum.repos.d/jenkins.repo http://pkg.jenkins.io/redhat/jenkins.repo"
+
+step5:	Import a key file from Jenkins-CI to enable installation from the package(for trust worthiness).
+	"sudo rpm --import https://pkg.jenkins.io/redhat/jenkins.io.key"
+
+step6:	Install Jenkins.
+	"sudo yum install jenkins" -y
+
+step7:	Start Jenkins as a service.
+	"sudo service jenkins start"
+
+step8:	Configure Jenkins.
+	http://your-server-address:8080
+	example:http://13.232.122.157:8080
+
+As noted on the user interface, you can find this password in
+	"cd /var/lib/jenkins/secrets/"
+	"ls -l"
+	"cat initialAdminPassword"		 
+     
+            
+		
