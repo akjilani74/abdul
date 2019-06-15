@@ -1,0 +1,60 @@
+# 1.Log into ubuntu instance and run following commands
+# 2.Udate by using 
+       * sudo apt update
+# 3.Install Default java by running following command
+        * sudo apt-get install default-jdk
+# 4.Install apache tomcat,copy the link from apache website by running below command
+        * wget http://mirrors.estointernet.in/apache/tomcat/tomcat-9/v9.0.19/bin/apache-tomcat-9.0.19-windows-x64.zip
+# 5.Unzip  the downloades file
+          unzip apache-tomcat-9.0.19-windows-x64.zip
+# 6.move the apache-tomcat-9 
+           sudo mv apache-tomcat-9.0.19 /usr/local/apache-tomcat9
+# 7.Configure Environment Variables by running following commands
+           echo "export CATALINA_HOME="/usr/local/apache-tomcat9"" >> ~/.bashrc
+           echo "export JAVA_HOME="/usr/lib/jvm/java-11-oracle"" >> ~/.bashrc
+           echo "export JRE_HOME="/usr/lib/jvm/java-11-oracle"" >> ~/.bashrc
+           source ~/.bashrc
+# 8.Setup Tomcat User Accounts	
+        Finally we need to create user accounts to secure and access admin/manager pages. Edit conf/tomcat-users.xml file in your editor and paste inside <tomcat-users> </tomcat-users> tags.
+        
+        <!-- user manager can access only manager section -->
+        <role rolename="manager-gui" />
+        <user username="manager" password="_SECRET_PASSWORD_" roles="manager-gui" />
+
+        <!-- user admin can access manager and admin section both -->
+        <role rolename="admin-gui" />
+        <user username="admin" password="_SECRET_PASSWORD_" roles="manager-gui,admin-gui" />		
+# 9. Enable Host/Manager for Remote IP
+        
+        The default manager and host-manager web pages are enabled to access from localhost only. To access these pages from the remote system, you have to allow your IP or IP range in the application-specific context.xml file.
+        
+        Manager File: ./webapps/manager/META-INF/context.xml
+        Host Manager File: ./webapps/host-manager/META-INF/context.xml	
+        		
+		Edit above files and add your IP address
+        
+        After making changes restart Tomcat service.
+
+# 10.Starting Tomcat Service
+        
+        Tomcat is very easy to use, There is no need to compile its source. You simply extract the archive and start the tomcat server. Tomcat by default start on port 8080, So make sure no other application using the same port.
+
+
+        cd /usr/local/apache-tomcat9
+        chmod +x ./bin/startup.sh
+        ./bin/startup.sh
+
+#11.The following output will be generated
+        
+        Using CATALINA_BASE:   /usr/local/apache-tomcat9
+        Using CATALINA_HOME:   /usr/local/apache-tomcat9
+        Using CATALINA_TMPDIR: /usr/local/apache-tomcat9/temp
+        Using JRE_HOME:        /usr/lib/jvm/java-11-oracle
+        Using CLASSPATH:       /usr/local/apache-tomcat9/bin/bootstrap.jar:/usr/local/apache-tomcat9/bin/tomcat-juli.jar
+        Tomcat started.		
+		
+#12.Access Tomcat in Browser
+
+        Tomcat server default works on port 8080. Access tomcat in the web browser by connecting your server on port 8080.
+
+		
